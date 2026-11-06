@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIRAL EXPOSE</title>
+  <!-- Telegram Web App SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen pb-10">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur border-b border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
+    <div class="flex items-center gap-3">
+      <button class="text-slate-300 text-lg hover:text-white"><i class="fa-solid fa-bars"></i></button>
+      <h1 class="font-extrabold text-xl tracking-wider">VIRAL <span class="text-rose-500">EXPOSE</span></h1>
+    </div>
+    <button class="text-slate-400 hover:text-white"><i class="fa-solid fa-gear text-lg"></i></button>
+  </header>
+
+  <!-- Main Content / Video List (3 Videos) -->
+  <main class="max-w-md mx-auto p-4 space-y-5">
+
+    <!-- Video 1 -->
+    <div class="bg-slate-800/80 rounded-xl overflow-hidden border border-slate-700/60 shadow-lg">
+      <div class="relative">
+        <img src="https://picsum.photos/400/220?random=1" alt="Thumbnail 1" class="w-full h-48 object-cover">
+        <span class="absolute top-2 left-2 bg-emerald-500/90 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur flex items-center gap-1">
+          <i class="fa-solid fa-lock-open text-[10px]"></i> Unlocked
+        </span>
+        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">00:20</span>
+      </div>
+      <div class="p-4 space-y-3">
+        <h2 class="font-bold text-slate-100 text-base line-clamp-2">মাছরাঙা চ্যানেলে আপলোড করা মেহজাবিনের ভিডিও</h2>
+        <p class="text-xs text-slate-400 flex items-center gap-1">
+          <i class="fa-regular fa-eye"></i> ৪৭৯ ভিউ • ৪ দিন আগে
+        </p>
+        <div class="flex items-center gap-2 pt-1">
+          <button onclick="openUnlockPopup('https://t.me/your_channel_username')" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition active:scale-95">
+            <i class="fa-solid fa-play text-sm"></i> Watch Video
+          </button>
+          <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 p-2.5 rounded-lg transition">
+            <i class="fa-solid fa-share-nodes"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="bg-slate-800/80 rounded-xl overflow-hidden border border-slate-700/60 shadow-lg">
+      <div class="relative">
+        <img src="https://picsum.photos/400/220?random=2" alt="Thumbnail 2" class="w-full h-48 object-cover">
+        <span class="absolute top-2 right-2 bg-black/70 text-amber-400 text-xs font-semibold px-2 py-0.5 rounded border border-amber-500/30">দেশী</span>
+        <span class="absolute top-2 left-2 bg-emerald-500/90 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur flex items-center gap-1">
+          <i class="fa-solid fa-lock-open text-[10px]"></i> Unlocked
+        </span>
+        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">01:21</span>
+      </div>
+      <div class="p-4 space-y-3">
+        <h2 class="font-bold text-slate-100 text-base line-clamp-2">পরীমনির ১:২০ সেকেন্ডের ফুল কালেকশন</h2>
+        <p class="text-xs text-slate-400 flex items-center gap-1">
+          <i class="fa-regular fa-eye"></i> ৫৭১ ভিউ • ৫ দিন আগে
+        </p>
+        <div class="flex items-center gap-2 pt-1">
+          <button onclick="openUnlockPopup('https://t.me/your_channel_username')" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition active:scale-95">
+            <i class="fa-solid fa-play text-sm"></i> Watch Video
+          </button>
+          <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 p-2.5 rounded-lg transition">
+            <i class="fa-solid fa-share-nodes"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="bg-slate-800/80 rounded-xl overflow-hidden border border-slate-700/60 shadow-lg">
+      <div class="relative">
+        <img src="https://picsum.photos/400/220?random=3" alt="Thumbnail 3" class="w-full h-48 object-cover">
+        <span class="absolute top-2 right-2 bg-black/70 text-amber-400 text-xs font-semibold px-2 py-0.5 rounded border border-amber-500/30">দেশী</span>
+        <span class="absolute top-2 left-2 bg-emerald-500/90 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur flex items-center gap-1">
+          <i class="fa-solid fa-lock-open text-[10px]"></i> Unlocked
+        </span>
+        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">02:15</span>
+      </div>
+      <div class="p-4 space-y-3">
+        <h2 class="font-bold text-slate-100 text-base line-clamp-2">নতুন ভাইরাল ক্লিপ ফুল এইচডি কোয়ালিটি</h2>
+        <p class="text-xs text-slate-400 flex items-center gap-1">
+          <i class="fa-regular fa-eye"></i> ৩২০ ভিউ • ২ দিন আগে
+        </p>
+        <div class="flex items-center gap-2 pt-1">
+          <button onclick="openUnlockPopup('https://t.me/your_channel_username')" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition active:scale-95">
+            <i class="fa-solid fa-play text-sm"></i> Watch Video
+          </button>
+          <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 p-2.5 rounded-lg transition">
+            <i class="fa-solid fa-share-nodes"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Popup Overlay -->
+  <div id="popup-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 w-full max-w-xs text-center space-y-4 shadow-2xl transform transition-all">
+      <div class="w-16 h-16 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-white flex items-center justify-center gap-2">
+          ভিডিও আনলক হয়েছে! 🎉
+        </h3>
+        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+          বিজ্ঞাপন দেখা সম্পন্ন। এখন আপনি ফুল ভিডিও দেখতে পারবেন!
+        </p>
+      </div>
+      <button id="popup-confirm-btn" class="w-full bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition active:scale-95">
+        ঠিক আছে
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Initialize Telegram Web App
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.ready();
+      window.Telegram.WebApp.expand();
+    }
+
+    let targetChannelUrl = "";
+
+    function openUnlockPopup(channelUrl) {
+      targetChannelUrl = channelUrl;
+      document.getElementById('popup-modal').classList.remove('hidden');
+    }
+
+    document.getElementById('popup-confirm-btn').addEventListener('click', function() {
+      // Hide popup
+      document.getElementById('popup-modal').classList.add('hidden');
+
+      // Redirect to Telegram Channel
+      if (targetChannelUrl) {
+        if (window.Telegram && window.Telegram.WebApp) {
+          Telegram.WebApp.openTelegramLink(targetChannelUrl);
+        } else {
+          window.open(targetChannelUrl, '_blank');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
