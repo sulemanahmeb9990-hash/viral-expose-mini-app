@@ -87,67 +87,88 @@
     </div>
 </div>
 
-    <script>
-        // আপনার AdsGram Block ID এখানে বসান (যেমন: "int-xxxx" বা আপনার প্রোভাইড করা আইডি)
-        const BLOCK_ID = "58428";
-        
-        // Adsgram ইনিশিয়ালাইজ করা
-        let adController;
-        if (window.Adsgram) {
-            adController = window.Adsgram.init({ blockId: BLOCK_ID });
-        }
+    
+<script>
+const BLOCK_ID = "58587";
+let adController = null;
 
-        // পেজ লোড হওয়ার সময় চেক করা ভিডিও আগে আনলক করা আছে কি না
-        window.onload = function() {
-            const isUnlocked = localStorage.getItem("unlocked_1");
-            if (isUnlocked === "true") {
-                applyUnlockedUI('1');
-            }
-        };
+// AdsGram SDK চালু
+function initAds() {
+    if (!window.Adsgram) {
+        console.error("AdsGram SDK load হয়নি");
+        return;
+    }
 
-        function handleWatchVideo(videoId, videoUrl) {
-            // যদি আগেই আনলক করা থাকে সরাসরি ভিডিও লিংকে পাঠিয়ে দেবে
-            if (localStorage.getItem(`unlocked_${videoId}`) === "true") {
-                window.location.href = videoUrl;
+    try {
+        adController = window.Adsgram.init({
+            blockId: BLOCK_ID,
+            debug: true,
+            debugBannerType: "RewardedVideo"
+        });
+
+        adController.addEventListener("onBannerNotFound", () => {
+            alert("এখন কোনো বিজ্ঞাপন পাওয়া যাচ্ছে না। পরে চেষ্টা করুন।");
+        });
+
+        adController.addEventListener("onError", () => {
+            alert("বিজ্ঞাপন চালু করতে সমস্যা হয়েছে।");
+        });
+
+        console.log("AdsGram initialized");
+    } catch (error) {
+        console.error("AdsGram error:", error);
+    }
+}
+
+window.addEventListener("load", initAds);
+
+function handleWatchVideo(videoId, videoUrl) {
+    if (!adController) {
+        alert("AdsGram এখনো লোড হয়নি।");
+        return;
+    }
+
+    adController.show()
+        .then((result) => {
+            if (result && result.done === false) {
+                alert("বিজ্ঞাপন সম্পূর্ণ হয়নি।");
                 return;
             }
 
-            if (!adController) {
-                alert("এডসগ্রাম লোড হতে সমস্যা হচ্ছে। দয়া করে একটু পরে চেষ্টা করুন।");
-                return;
-            }
+            localStorage.setItem(
+                "unlocked_" + videoId,
+                "true"
+            );
 
-            // অ্যাড দেখানো শুরু হবে
-            adController.show()
-                .then((result) => {
-                    // ইউজার সফলভাবে অ্যাড দেখলে
-                    localStorage.setItem(`unlocked_${videoId}`, "true");
-                    applyUnlockedUI(videoId);
-                    
-                    // সফল মেসেজ বা সরাসরি ভিডিও ওপেন করা
-                    alert("অভিনন্দন! বিজ্ঞাপন দেখা শেষ, ভিডিওটি আনলক হয়েছে।");
-                    window.location.href = videoUrl; 
-                })
-                .catch((result) => {
-                    // ইউজার অ্যাড মাঝপথে কেটে দিলে বা এরর আসলে
-                    console.log("Ad error or skipped", result);
-                    alert("বিজ্ঞাপনটি সম্পূর্ণ দেখা হয়নি, তাই ভিডিওটি আনলক করা যায়নি।");
-                });
-        }
+            applyUnlockedUI(videoId);
+            alert("ভিডিও আনলক হয়েছে!");
+            window.location.href = videoUrl;
+        })
+        .catch((error) => {
+            console.error("Ad failed:", error);
+            alert("বিজ্ঞাপন পাওয়া যায়নি অথবা সম্পূর্ণ হয়নি।");
+        });
+}
 
-        function applyUnlockedUI(videoId) {
-            const btn = document.getElementById(`btn_${videoId}`);
-            const badge = document.getElementById(`badge_${videoId}`);
-            
-            if (btn) {
-                btn.innerText = "▶ Watch Video (১/১)";
-                btn.classList.add("unlocked");
-            }
-            if (badge) {
-                badge.innerText = "🔓 আনলকড";
-                badge.style.background = "rgba(47, 133, 90, 0.8)";
-            }
-        }
-    </script>
+function applyUnlockedUI(videoId) {
+    const btn = document.getElementById("btn_" + videoId);
+    const badge = document.getElementById("badge_" + videoId);
+
+    if (btn) {
+        btn.innerText = "▶ Watch Video (১/১)";
+        btn.classList.add("unlocked");
+    }
+
+    if (badge) {
+        badge.innerText = "🔓 আনলকড";
+    }
+}
+
+window.addEventListener("load", () => {
+    if (localStorage.getItem("unlocked_1") === "true") {
+        applyUnlockedUI("1");
+    }
+});
+</script>
 </body>
 </html>
