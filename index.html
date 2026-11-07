@@ -159,20 +159,19 @@
           window.open(targetChannelUrl, '_blank');
         }
       }
-    });    function showAdAndUnlock(videoUrl) {
-        if (window.Adsgram) {
-            const AdController = window.Adsgram.init({ blockId: "58428" });
-            
-            AdController.show().then((result) => {
-                window.open(videoUrl, '_blank');
-            }).catch((result) => {
-                alert("ভিডিওটি দেখতে সম্পূর্ণ অ্যাডটি দেখতে হবে!");
-            });
-        } else {
-            window.open(videoUrl, '_blank');
-        }
+    });        function showAdAndUnlock(videoUrl) {
+      if (window.Adsgram) {
+        const AdController = window.Adsgram.init({ blockId: "58428" });
+        
+        AdController.show().then((result) => {
+          window.open(videoUrl, '_blank');
+        }).catch((result) => {
+          alert("ভিডিওটি দেখতে সম্পূর্ণ অ্যাডটি দেখতে হবে!");
+        });
+      } else {
+        alert("অ্যাড লোড হতে সমস্যা হয়েছে, দয়া করে আবার চেষ্টা করুন।");
+      }
     }
-
   </script>
 </body>
 </html>
