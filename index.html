@@ -102,8 +102,6 @@ function initAds() {
     try {
         adController = window.Adsgram.init({
             blockId: BLOCK_ID,
-            debug: true,
-            debugBannerType: "RewardedVideo"
         });
 
         adController.addEventListener("onBannerNotFound", () => {
