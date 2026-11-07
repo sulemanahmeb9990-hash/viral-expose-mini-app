@@ -106,21 +106,6 @@ function initAds() {
     debugConsole: true,
     debugBannerType: "RewardedVideo"
         });
-
-        adController.addEventListener("onBannerNotFound", () => {
-            alert("এখন কোনো বিজ্ঞাপন পাওয়া যাচ্ছে না। পরে চেষ্টা করুন।");
-        });
-
-        adController.addEventListener("onError", () => {
-            alert("বিজ্ঞাপন চালু করতে সমস্যা হয়েছে।");
-        });
-
-        console.log("AdsGram initialized");
-    } catch (error) {
-        console.error("AdsGram error:", error);
-    }
-}
-
 window.addEventListener("load", initAds);
 
 function handleWatchVideo(videoId, videoUrl) {
