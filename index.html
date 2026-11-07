@@ -1,177 +1,151 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VIRAL EXPOSE</title>
-  <!-- Telegram Web App SDK -->
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      background-color: #0f172a;
-      color: #f8fafc;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    }
-  </style>
-</head>
-<body class="min-h-screen pb-10">
-
-  <!-- Header -->
-  <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur border-b border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
-    <div class="flex items-center gap-3">
-      <button class="text-slate-300 text-lg hover:text-white"><i class="fa-solid fa-bars"></i></button>
-      <h1 class="font-extrabold text-xl tracking-wider">VIRAL <span class="text-rose-500">EXPOSE</span></h1>
-    </div>
-    <button class="text-slate-400 hover:text-white"><i class="fa-solid fa-gear text-lg"></i></button>
-  </header>
-
-  <!-- Main Content / Video List (3 Videos) -->
-  <main class="max-w-md mx-auto p-4 space-y-5">
-
-    <!-- Video 1 -->
-  <div class="bg-slate-800/80 rounded-xl overflow-hidden">
-    <div class="relative">
-        <img src="https://fileshare.viraltube.buzz/images/img_1791986436_480.jpg" alt="Video Thumbnail" class="w-full h-48 object-cover">
-        <span class="absolute top-2 left-2 bg-rose-500/90 text-white text-xs font-semibold px-2 py-1 rounded-md flex items-center gap-1">
-    <i class="fa-solid fa-lock mr-1"></i>Locked
-        </span>
-    </div>
-    <div class="p-4 space-y-3">
-        <h2 class="font-bold text-slate-100 text-base">Viral Video Title</h2>
-        <p class="text-xs text-slate-400 flex items-center gap-1">
-            <i class="fa-regular fa-eye"></i> 479 Views • 4 din age
-        </p>
-        <div class="flex items-center gap-2 pt-2">
-            <button onclick="showAdAndUnlock('https://t.me/c/3962895219/2')" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-semibold px-2 py-2.5 rounded-l transition-all flex items-center justify-center gap-2">
-                <i class="fa-solid fa-play text-sm"></i> Watch Video
-            </button>
-            <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 p-2.5 rounded-xl transition-all">
-                <i class="fa-solid fa-share-nodes"></i>
-            </button>
-        </div>
-    </div>
-</div>
-
-
-
-    <!-- Video 2 -->
-    <div class="bg-slate-800/80 rounded-xl overflow-hidden border border-slate-700/60 shadow-lg">
-      <div class="relative">
-        <img src="https://picsum.photos/400/220?random=2" alt="Thumbnail 2" class="w-full h-48 object-cover">
-        <span class="absolute top-2 right-2 bg-black/70 text-amber-400 text-xs font-semibold px-2 py-0.5 rounded border border-amber-500/30">দেশী</span>
-        <span class="absolute top-2 left-2 bg-emerald-500/90 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur flex items-center gap-1">
-          <i class="fa-solid fa-lock-open text-[10px]"></i> Unlocked
-        </span>
-        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">01:21</span>
-      </div>
-      <div class="p-4 space-y-3">
-        <h2 class="font-bold text-slate-100 text-base line-clamp-2">পরীমনির ১:২০ সেকেন্ডের ফুল কালেকশন</h2>
-        <p class="text-xs text-slate-400 flex items-center gap-1">
-          <i class="fa-regular fa-eye"></i> ৫৭১ ভিউ • ৫ দিন আগে
-        </p>
-        <div class="flex items-center gap-2 pt-1">
-          <button onclick="openUnlockPopup('https://t.me/your_channel_username')" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition active:scale-95">
-            <i class="fa-solid fa-play text-sm"></i> Watch Video
-          </button>
-          <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 p-2.5 rounded-lg transition">
-            <i class="fa-solid fa-share-nodes"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Video 3 -->
-    <div class="bg-slate-800/80 rounded-xl overflow-hidden border border-slate-700/60 shadow-lg">
-      <div class="relative">
-        <img src="https://picsum.photos/400/220?random=3" alt="Thumbnail 3" class="w-full h-48 object-cover">
-        <span class="absolute top-2 right-2 bg-black/70 text-amber-400 text-xs font-semibold px-2 py-0.5 rounded border border-amber-500/30">দেশী</span>
-        <span class="absolute top-2 left-2 bg-emerald-500/90 text-white text-xs font-semibold px-2.5 py-1 rounded-md backdrop-blur flex items-center gap-1">
-          <i class="fa-solid fa-lock-open text-[10px]"></i> Unlocked
-        </span>
-        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">02:15</span>
-      </div>
-      <div class="p-4 space-y-3">
-        <h2 class="font-bold text-slate-100 text-base line-clamp-2">নতুন ভাইরাল ক্লিপ ফুল এইচডি কোয়ালিটি</h2>
-        <p class="text-xs text-slate-400 flex items-center gap-1">
-          <i class="fa-regular fa-eye"></i> ৩২০ ভিউ • ২ দিন আগে
-        </p>
-        <div class="flex items-center gap-2 pt-1">
-          <button onclick="openUnlockPopup('https://t.me/your_channel_username')" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition active:scale-95">
-            <i class="fa-solid fa-play text-sm"></i> Watch Video
-          </button>
-          <button class="bg-slate-700 hover:bg-slate-600 text-slate-200 p-2.5 rounded-lg transition">
-            <i class="fa-solid fa-share-nodes"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Popup Overlay -->
-  <div id="popup-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 w-full max-w-xs text-center space-y-4 shadow-2xl transform transition-all">
-      <div class="w-16 h-16 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl">
-        <i class="fa-solid fa-check"></i>
-      </div>
-      <div>
-        <h3 class="text-xl font-bold text-white flex items-center justify-center gap-2">
-          ভিডিও আনলক হয়েছে! 🎉
-        </h3>
-        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-          বিজ্ঞাপন দেখা সম্পন্ন। এখন আপনি ফুল ভিডিও দেখতে পারবেন!
-        </p>
-      </div>
-      <button id="popup-confirm-btn" class="w-full bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition active:scale-95">
-        ঠিক আছে
-      </button>
-    </div>
-  </div>
-
-  <!-- JavaScript Logic -->
-  <script>
-    // Initialize Telegram Web App
-    if (window.Telegram && window.Telegram.WebApp) {
-      window.Telegram.WebApp.ready();
-      window.Telegram.WebApp.expand();
-    }
-
-    let targetChannelUrl = "";
-
-    function openUnlockPopup(channelUrl) {
-      targetChannelUrl = channelUrl;
-      document.getElementById('popup-modal').classList.remove('hidden');
-    }
-
-    document.getElementById('popup-confirm-btn').addEventListener('click', function() {
-      // Hide popup
-      document.getElementById('popup-modal').classList.add('hidden');
-
-      // Redirect to Telegram Channel
-      if (targetChannelUrl) {
-        if (window.Telegram && window.Telegram.WebApp) {
-          Telegram.WebApp.openTelegramLink(targetChannelUrl);
-        } else {
-          window.open(targetChannelUrl, '_blank');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viral Expose - Video Unlocker</title>
+    <!-- AdsGram SDK Script -->
+    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 10px;
         }
-      }
-    });        function showAdAndUnlock(videoUrl) {
-      if (window.Adsgram) {
-        const AdController = window.Adsgram.init({ blockId: "58428" });
+        .header {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff334b;
+            padding: 10px 0;
+        }
+        .video-card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        .video-thumb {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        .lock-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .video-info {
+            padding: 10px;
+        }
+        .video-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .watch-btn {
+            width: 100%;
+            background-color: #2b6cb0;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+        .watch-btn.unlocked {
+            background-color: #2f855a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">VIRAL EXPOSE</div>
+
+    <!-- ভিডিও কার্ড ১ -->
+    <div class="video-card">
+        <div class="video-thumb" style="background-image: url('https://via.placeholder.com/400x200')">
+            <div class="lock-badge" id="badge_1">🔒 লক করা</div>
+        </div>
+        <div class="video-info">
+            <div class="video-title">উফ.....পুরাই আগুন (স্পেশাল ভিডিও)</div>
+            <button class="watch-btn" id="btn_1" onclick="handleWatchVideo('1', 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID')">
+                ▶ Watch Video (০/১)
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // আপনার AdsGram Block ID এখানে বসান (যেমন: "int-xxxx" বা আপনার প্রোভাইড করা আইডি)
+        const BLOCK_ID = 
         
-        AdController.show().then((result) => {
-          window.open(videoUrl, '_blank');
-        }).catch((result) => {
-          alert("ভিডিওটি দেখতে সম্পূর্ণ অ্যাডটি দেখতে হবে!");
-        });
-      } else {
-        alert("অ্যাড লোড হতে সমস্যা হয়েছে, দয়া করে আবার চেষ্টা করুন।");
-      }
-    }
-  </script>
+        // Adsgram ইনিশিয়ালাইজ করা
+        let adController;
+        if (window.Adsgram) {
+            adController = window.Adsgram.init({ blockId: BLOCK_ID });
+        }
+
+        // পেজ লোড হওয়ার সময় চেক করা ভিডিও আগে আনলক করা আছে কি না
+        window.onload = function() {
+            const isUnlocked = localStorage.getItem("unlocked_1");
+            if (isUnlocked === "true") {
+                applyUnlockedUI('1');
+            }
+        };
+
+        function handleWatchVideo(videoId, videoUrl) {
+            // যদি আগেই আনলক করা থাকে সরাসরি ভিডিও লিংকে পাঠিয়ে দেবে
+            if (localStorage.getItem(`unlocked_${videoId}`) === "true") {
+                window.location.href = videoUrl;
+                return;
+            }
+
+            if (!adController) {
+                alert("এডসগ্রাম লোড হতে সমস্যা হচ্ছে। দয়া করে একটু পরে চেষ্টা করুন।");
+                return;
+            }
+
+            // অ্যাড দেখানো শুরু হবে
+            adController.show()
+                .then((result) => {
+                    // ইউজার সফলভাবে অ্যাড দেখলে
+                    localStorage.setItem(`unlocked_${videoId}`, "true");
+                    applyUnlockedUI(videoId);
+                    
+                    // সফল মেসেজ বা সরাসরি ভিডিও ওপেন করা
+                    alert("অভিনন্দন! বিজ্ঞাপন দেখা শেষ, ভিডিওটি আনলক হয়েছে।");
+                    window.location.href = videoUrl; 
+                })
+                .catch((result) => {
+                    // ইউজার অ্যাড মাঝপথে কেটে দিলে বা এরর আসলে
+                    console.log("Ad error or skipped", result);
+                    alert("বিজ্ঞাপনটি সম্পূর্ণ দেখা হয়নি, তাই ভিডিওটি আনলক করা যায়নি।");
+                });
+        }
+
+        function applyUnlockedUI(videoId) {
+            const btn = document.getElementById(`btn_${videoId}`);
+            const badge = document.getElementById(`badge_${videoId}`);
+            
+            if (btn) {
+                btn.innerText = "▶ Watch Video (১/১)";
+                btn.classList.add("unlocked");
+            }
+            if (badge) {
+                badge.innerText = "🔓 আনলকড";
+                badge.style.background = "rgba(47, 133, 90, 0.8)";
+            }
+        }
+    </script>
 </body>
 </html>
