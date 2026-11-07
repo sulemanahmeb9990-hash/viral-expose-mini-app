@@ -91,14 +91,6 @@
 <script>
 const BLOCK_ID = "58587";
 let adController = null;
-
-// AdsGram SDK চালু
-function initAds() {
-    if (!window.Adsgram) {
-        console.error("AdsGram SDK load হয়নি");
-        return;
-    }
-
     try {
         adController = window.Adsgram.init({
     blockId: BLOCK_ID,
@@ -129,10 +121,7 @@ function handleWatchVideo(videoId, videoUrl) {
             applyUnlockedUI(videoId);
             alert("ভিডিও আনলক হয়েছে!");
             window.location.href = videoUrl;
-        })
-        .catch((error) => {
-            console.error("Ad failed:", error);
-            alert("বিজ্ঞাপন পাওয়া যায়নি অথবা সম্পূর্ণ হয়নি।");
+        });
         });
 }
 
