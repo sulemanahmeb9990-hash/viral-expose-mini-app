@@ -41,8 +41,7 @@ header p{color:#d9c8ff;margin-top:9px}
 }
 .placeholder{
  display:flex;align-items:center;
- justify-content:center;
- font-size:42px;
+ justify-content:center;font-size:42px;
  background:linear-gradient(135deg,#211c48,#48216d);
 }
 .info{text-align:center;padding:12px}
@@ -85,72 +84,67 @@ header p{color:#d9c8ff;margin-top:9px}
 
 <div class="grid">
 
- <!-- FIRST VIDEO -->
- <div class="card">
-  <img
-   src="https://fileshare.viraltube.buzz/images/img_1791986436_480.jpg"
-   alt="Video 01">
+<div class="card">
+ <img src="https://fileshare.viraltube.buzz/images/img_1791986436_480.jpg"
+      alt="Video 01">
 
-  <div class="info">
-   <h3>VIDEO 01</h3>
+ <div class="info">
+  <h3>VIDEO 01</h3>
 
-   <button class="btn" id="unlockBtn"
-    onclick="unlockVideo()">
-    🔒 UNLOCK VIDEO
-   </button>
+  <button class="btn" id="unlockBtn" onclick="unlockVideo()">
+   🔒 UNLOCK VIDEO
+  </button>
 
-   <button class="btn" id="watchBtn"
-    onclick="watchVideo()"
-    style="display:none">
-    ▶ WATCH VIDEO
-   </button>
+  <button class="btn" id="watchBtn"
+          onclick="watchVideo()" style="display:none">
+   ▶ WATCH VIDEO
+  </button>
 
-   <div class="status" id="status">
-    Watch an ad to unlock
-   </div>
+  <div class="status" id="status">
+   Watch 2 ads to unlock
   </div>
  </div>
+</div>
 
- <!-- EMPTY VIDEO CARDS -->
- <div class="card">
-  <div class="placeholder">▶</div>
-  <div class="info">
-   <h3>VIDEO 02</h3>
-   <button class="btn" disabled>COMING SOON</button>
-  </div>
+<div class="card">
+ <div class="placeholder">▶</div>
+ <div class="info">
+  <h3>VIDEO 02</h3>
+  <button class="btn" disabled>COMING SOON</button>
  </div>
+</div>
 
- <div class="card">
-  <div class="placeholder">▶</div>
-  <div class="info">
-   <h3>VIDEO 03</h3>
-   <button class="btn" disabled>COMING SOON</button>
-  </div>
+<div class="card">
+ <div class="placeholder">▶</div>
+ <div class="info">
+  <h3>VIDEO 03</h3>
+  <button class="btn" disabled>COMING SOON</button>
  </div>
+</div>
 
- <div class="card">
-  <div class="placeholder">▶</div>
-  <div class="info">
-   <h3>VIDEO 04</h3>
-   <button class="btn" disabled>COMING SOON</button>
-  </div>
+<div class="card">
+ <div class="placeholder">▶</div>
+ <div class="info">
+  <h3>VIDEO 04</h3>
+  <button class="btn" disabled>COMING SOON</button>
  </div>
+</div>
 
- <div class="card">
-  <div class="placeholder">▶</div>
-  <div class="info">
-   <h3>VIDEO 05</h3>
-   <button class="btn" disabled>COMING SOON</button>
-  </div>
+<div class="card">
+ <div class="placeholder">▶</div>
+ <div class="info">
+  <h3>VIDEO 05</h3>
+  <button class="btn" disabled>COMING SOON</button>
  </div>
+</div>
 
- <div class="card">
-  <div class="placeholder">▶</div>
-  <div class="info">
-   <h3>VIDEO 06</h3>
-   <button class="btn" disabled>COMING SOON</button>
-  </div>
+<div class="card">
+ <div class="placeholder">▶</div>
+ <div class="info">
+  <h3>VIDEO 06</h3>
+  <button class="btn" disabled>COMING SOON</button>
  </div>
+</div>
 
 </div>
 
@@ -163,21 +157,11 @@ header p{color:#d9c8ff;margin-top:9px}
 
 <script>
 const VIDEO_LINK = "https://t.me/c/3962895219/2";
-const BLOCK_ID = "58782";
 
-let unlocked = localStorage.getItem("video01_unlocked") === "yes";
+let unlocked =
+ localStorage.getItem("video01_unlocked") === "yes";
 
-let adController = null;
-
-try {
- if (window.Adsgram) {
-  adController = window.Adsgram.init({
-   blockId: BLOCK_ID
-  });
- }
-} catch(error) {
- console.error(error);
-}
+let busy = false;
 
 function updateUI(){
  if(unlocked){
@@ -192,43 +176,48 @@ async function unlockVideo(){
  const btn=document.getElementById("unlockBtn");
  const status=document.getElementById("status");
 
- if(unlocked){
-  updateUI();
+ if(unlocked || busy) return;
+
+ if(typeof window.show_12223765 !== "function"){
+  status.innerText="Monetag unavailable. Try again later.";
   return;
  }
 
- if(!adController){
-  status.innerText="Ad unavailable. Open inside Telegram Mini App.";
-  return;
- }
-
+ busy=true;
  btn.disabled=true;
- btn.innerText="LOADING AD...";
- status.innerText="Please watch the full advertisement";
 
  try{
-  const result=await adController.show();
 
-  if(result && result.done===true && !result.error){
-   unlocked=true;
-   localStorage.setItem("video01_unlocked","yes");
-   updateUI();
-   status.innerText="🎉 Successfully Unlocked!";
-  }else{
-   status.innerText="Ad not completed. Try again.";
-   btn.disabled=false;
-   btn.innerText="🔒 UNLOCK VIDEO";
-  }
+  btn.innerText="FIRST AD LOADING...";
+  status.innerText="Please complete advertisement 1 of 2";
+
+  await window.show_12223765();
+
+  btn.innerText="SECOND AD LOADING...";
+  status.innerText="Please complete advertisement 2 of 2";
+
+  await window.show_12223765();
+
+  unlocked=true;
+  localStorage.setItem("video01_unlocked","yes");
+
+  updateUI();
+  status.innerText="🎉 Successfully Unlocked!";
 
  }catch(error){
+
   console.error(error);
-  status.innerText="Ad skipped or unavailable. Try again.";
+  status.innerText="Ad unavailable. Please try again.";
   btn.disabled=false;
   btn.innerText="🔒 UNLOCK VIDEO";
+
+ }finally{
+  busy=false;
  }
 }
 
 function watchVideo(){
+
  if(!unlocked)return;
 
  const tg=window.Telegram && window.Telegram.WebApp;
